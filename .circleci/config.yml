@@ -1,0 +1,13 @@
+version: 2
+
+jobs:
+  build:
+    working_directory: ~/app
+    docker:
+      - image: circleci/node:8.4.0
+    steps:
+      - checkout
+      - run: node -e "console.log('Hello from NodeJS ' + process.version + '\!')"
+      - run: yarn
+      - setup_remote_docker
+      - run: docker build .
