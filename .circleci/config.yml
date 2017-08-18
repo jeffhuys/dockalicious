@@ -10,4 +10,4 @@ jobs:
       - run: node -e "console.log('Hello from NodeJS ' + process.version + '\!')"
       - run: yarn
       - setup_remote_docker
-      - run: docker build .
+      - run: sudo docker build .
