@@ -1,7 +1,6 @@
 const os      = require('os')
 const express = require('express')
 const app     = express()
-const moment  = require('moment')
 
 const LISTEN_PORT = 3000
 
