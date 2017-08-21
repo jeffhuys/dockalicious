@@ -19,5 +19,9 @@ jobs:
       - checkout
       - run: node -e "console.log('Hello from NodeJS ' + process.version + '\!')"
       - run: yarn
+
       - setup_remote_docker
-      - run: eval `cat ~/sudo` docker build .
+      - run: eval `cat ~/sudo` docker build -t jeffhuys/dockalicious .
+      - run: eval `cat ~/sudo` docker tag jeffhuys/dockalicious jeffhuys/dockalicious:$CIRCLE_SHA1
+      - run: eval `cat ~/sudo` docker login -u $DOCKER_USER -p $DOCKER_PASS
+      - run: eval `cat ~/sudo` docker push jeffhuys/dockalicious
